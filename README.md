@@ -12,7 +12,7 @@ This gives us the ability to scan remotely files for known various and sanitize 
 
 This is a clamav antivirus running inside a container. This is done in order to scale easily our scanning capacity.
 
-The container is managed by a python supervisor that starts 2 main programs, the freshclam and clamd. The first will update the clam database every `UPDATE_CLAM_DB` (default 2) times a day, and the second will start clamav process. Everytime freshclam performs an update it will notify clam of the update to reload the database.
+The container is managed by a python supervisor that starts 2 main programs, the freshclam and clamd. The first will update the clam database every `FRESHCLAM_UPDATE` (default 2) times a day, and the second will start clamav process. Everytime freshclam performs an update it will notify clam of the update to reload the database.
 
 ## Sending commands.
 
