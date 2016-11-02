@@ -33,6 +33,13 @@ RUN apt-get update && \
     sed -i 's/^Foreground false/Foreground true/g' /etc/clamav/clamd.conf && \
     sed -i 's/^Foreground false/Foreground true/g' /etc/clamav/freshclam.conf && \
 
+# Make clam configuration changes that help with TCP sending packets
+    sed -i 's/^MaxThreads 12/MaxThreads 15/g' /etc/clamav/clamd.conf && \
+    sed -i 's/^MaxEmbeddedPE 10M/MaxEmbeddedPE 20M/g' /etc/clamav/clamd.conf && \
+    sed -i 's/^IdleTimeout 30/IdleTimeout 120/g' /etc/clamav/clamd.conf && \
+    sed -i 's/^CommandReadTimeout 5/CommandReadTimeout 30/g' /etc/clamav/clamd.conf && \
+    sed -i 's/^SendBufTimeout 200/SendBufTimeout 300/g' /etc/clamav/clamd.conf && \
+
 # Make clam listen to remote socker and not unix socket
    sed -i 's/^LocalSocket \/var\/run\/clamav\/clamd.ctl//g' /etc/clamav/clamd.conf && \
    echo "TCPSocket 3310 " >> /etc/clamav/clamd.conf && \
