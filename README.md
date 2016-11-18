@@ -20,4 +20,13 @@ This container accepts TCP commands, more information about the TCP commands can
 
 KEEP IN MIND: that this container should be reside in your private network because it can be abused by DDoS attack, so please keep this protected.
 
+## Simple usage
+
+To use this container just run to start the server 
+
+```
+$ docker run -p 3310:3310 Peopleperhour/clam
+```
+
+And then you can telnet and send commands via TCP sockets.
 
