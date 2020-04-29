@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:buster
 
 ENV CONFIG_DIR /opt/config
 ENV SUPERVISOR_CONF ${CONFIG_DIR}/supervisord.conf
@@ -12,7 +12,7 @@ RUN apt-get update && \
         clamav clamav-daemon python gcc musl-dev python-pip wget && \
 
 # Install Supervisor.
-    easy_install supervisor && \
+    pip install supervisor && \
 
 # Create folders and set proper permissions   
     mkdir /var/run/clamav && \
